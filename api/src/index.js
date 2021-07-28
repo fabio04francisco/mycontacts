@@ -1,9 +1,7 @@
 const express = require('express');
+const routes = require('./routes');
 
 const app = express();
+app.use(routes);
 
-app.get('/', (request, response) => {
-  response.send('Rota raiz da API MyContacts');
-})
-
-app.listen(3000, () => console.log('API started at http://localhost:3000'))
+app.listen(3000, () => console.log('API started at http://localhost:3000'));
