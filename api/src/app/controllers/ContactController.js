@@ -1,10 +1,22 @@
+const ContactsRepository = require('../repositories/ContactsRepository');
+
 class ContactController {
-  index(request, response) {
-    response.send('Start na classe Contact Controller');
+  async index(request, response) {
+    const contacts = await ContactsRepository.findAll();
+
+    response.json(contacts);
   }
 
-  show() {
-    // lista um contato
+  async show(request, response) {
+    const { id } = request.params;
+
+    const contact = await ContactsRepository.findById(id);
+
+    if (!contact) {
+      return response.status(404).json({ error: 'User not fauld' });
+    }
+
+    response.json(contact);
   }
 
   store() {
@@ -15,8 +27,17 @@ class ContactController {
     // edit um contato
   }
 
-  delete() {
-    // apaga um contato
+  async delete(request, response) {
+    const { id } = request.params;
+    const contact = await ContactsRepository.findById(id);
+
+    if (!contact) {
+      return response.status(404).json({ error: 'User not fauld' });
+    }
+
+    await ContactsRepository.delete(id);
+
+    response.sendStatus(204);
   }
 }
 
