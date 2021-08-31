@@ -1,0 +1,26 @@
+Cronograma de estudos
+
+- 29/08/2021 - MyContacts Front-end
+Implementando a busca de contato
+
+Dicas de organiação de código:
+
+Padrão para nomenclatrura de funções que são acionadas por ações do usuário:
+  - toda função deve começa com o prefixo: handle
+  - seguida pelo nome da ação (ex.: click, change, toggle...)
+  - nome da função.
+  ex.: handleToggleOrderBy, handleSubmit, handleClickEdit
+
+Modulo: Node.js com Express
+  comando para entrar no banco postgres via terminal
+  docker ps (lista conteiner em execução)
+  docker ps -a(lista todos os conteiner em execução ou não)
+
+  docker exec -it pg bash (pg corresponde ao nome do banco no docker)
+  psql -U root (-U corresponde ao usuário no banco selecionado)
+  \l (lista todas as base de dados criadas)
+  \c mycontacts (/c comando para conectar na base de dados - mycontacts nome da base)
+  \dt (exibe todas as tabela existentes no banco)
+
+Comando linux para encerrar processo por porta (-9 força o encerramento)
+sudo kill -9 $(sudo lsof -t -i:8000)
