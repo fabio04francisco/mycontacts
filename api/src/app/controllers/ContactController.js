@@ -14,7 +14,7 @@ class ContactController {
     const contact = await ContactsRepository.findById(id);
 
     if (!contact) {
-      return response.status(404).json({ error: 'User not fauld' });
+      return response.status(404).json({ error: 'Contact not fauld' });
     }
 
     response.json(contact);
@@ -37,7 +37,7 @@ class ContactController {
 
     const contact = await ContactsRepository.create(name, email, phone, category_id);
 
-    response.json(contact);
+    response.status(201).json(contact);
   }
 
   async update(request, response) {
@@ -50,7 +50,7 @@ class ContactController {
     const contactExists = await ContactsRepository.findById(id);
 
     if (!contactExists) {
-      response.status(404).json({ error: 'User not fould' });
+      response.status(404).json({ error: 'Contact not fould' });
     }
 
     if (!name) {

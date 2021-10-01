@@ -25,8 +25,8 @@ class CategoryController {
       return response.status(400).json({ error: 'Name is required.' });
     }
 
-    const row = await CategoriesRepository.create({ name });
-    response.status(200).json(row);
+    const category = await CategoriesRepository.create({ name });
+    response.status(201).json(category);
   }
 }
 
