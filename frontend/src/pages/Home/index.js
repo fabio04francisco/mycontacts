@@ -15,6 +15,7 @@ import trash from '../../assets/images/icons/trash.svg';
 import formatPhone from '../../utils/formatPhone';
 
 import Loader from '../../components/Loader';
+
 import ContactsService from '../../services/ContactsService';
 
 export default function Home() {
@@ -33,11 +34,10 @@ export default function Home() {
         setIsLoading(true);
 
         const contactsList = await ContactsService.listContacts(orderBy);
-        setContacts(contactsList);
 
-        setIsLoading(false);
+        setContacts(contactsList);
       } catch (error) {
-        console.log('error', error);
+        console.log('Caiu no catch', error);
       } finally {
         setIsLoading(false);
       }
