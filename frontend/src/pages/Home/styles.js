@@ -22,7 +22,6 @@ export const InputSearchContainer = styled.div`
     }
 
   }
-
 `;
 
 export const Header = styled.header`
@@ -158,5 +157,17 @@ export const EmptyListContainer = styled.div`
     strong {
       color: ${({ theme }) => theme.colors.primary.main}
     }
+  }
+`;
+
+export const SearchNotFoundContainer = styled.div`
+  display: flex;
+  align-items: flex-start;
+  margin-top: 16px;
+
+  span {
+    color: ${({ theme }) => theme.colors.gray[200]};
+    margin-left: 24px;
+    word-break: break-word;
   }
 `;
